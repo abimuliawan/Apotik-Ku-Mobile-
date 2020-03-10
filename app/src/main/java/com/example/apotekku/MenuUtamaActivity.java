@@ -73,31 +73,8 @@ public class MenuUtamaActivity extends AppCompatActivity {
         btnPenjualanBarang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //New Alert Option Laporan
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(MenuUtamaActivity.this);
-                View mView = getLayoutInflater().inflate(R.layout.dialog_kurang_stok,null);
-
-
-                //Set Card View
-
-                mBuilder.setView(mView)
-                        .setPositiveButton("Kurang", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //Tambah
-
-
-                            }
-                        })
-                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //Batal
-                            }
-                        });
-
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
+               Intent intent = new Intent(MenuUtamaActivity.this, TransaksiObatActivity.class);
+               startActivity(intent);
             }
         });
 

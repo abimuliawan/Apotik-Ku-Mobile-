@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ObatDAO {
 
-    @SerializedName("id_obat")
+    @SerializedName("id")
     @Expose
     public String id_obat;
 
@@ -25,21 +25,21 @@ public class ObatDAO {
     @Expose
     public String stok_obat;
 
-    @SerializedName("image")
+    @SerializedName("saldo_obat")
     @Expose
-    public String gambar_obat;
+    public String saldoObat;
 
     @SerializedName("tanggal_kadaluarsa")
     @Expose
     public String kadaluarsa;
 
-    public ObatDAO(String id_obat, String nama_obat, String merk_obat, String keterangan_obat, String stok_obat, String gambar_obat, String kadaluarsa) {
+    public ObatDAO(String id_obat, String nama_obat, String merk_obat, String keterangan_obat, String stok_obat, String saldoObat, String kadaluarsa) {
         this.id_obat = id_obat;
         this.nama_obat = nama_obat;
         this.merk_obat = merk_obat;
         this.keterangan_obat = keterangan_obat;
         this.stok_obat = stok_obat;
-        this.gambar_obat = gambar_obat;
+        this.saldoObat = saldoObat;
         this.kadaluarsa = kadaluarsa;
     }
 
@@ -83,12 +83,12 @@ public class ObatDAO {
         this.stok_obat = stok_obat;
     }
 
-    public String getGambar_obat() {
-        return gambar_obat;
+    public String getSaldoObat() {
+        return saldoObat;
     }
 
-    public void setGambar_obat(String gambar_obat) {
-        this.gambar_obat = gambar_obat;
+    public void setSaldoObat(String saldoObat) {
+        this.saldoObat = saldoObat;
     }
 
     public String getKadaluarsa() {

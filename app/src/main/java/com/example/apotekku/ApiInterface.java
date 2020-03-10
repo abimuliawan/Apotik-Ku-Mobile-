@@ -19,6 +19,10 @@ public interface ApiInterface {
     Call<LoginDAO> loginRequest(@Field("email") String username,
                                 @Field("password") String password);
 
+    // Laravel
+    @GET("semua_obat")
+    Call<List<ObatDAO>> showObat();
+
     //Tambah Stok ========================================================================
     @POST("TambahStok.php")
     @FormUrlEncoded
@@ -30,10 +34,6 @@ public interface ApiInterface {
     @FormUrlEncoded
     Call<LoginDAO> kurangStok(@Field("id_obat") int idObat,
                               @Field("jumlah_tambah") int jumlahTambah);
-
-    //Show Obat ==========================================================================
-    @GET("ShowObat.php")
-    Call<List<ObatDAO>> showObat();
 
     //Tambah Obat =======================================================================
     @POST("InsertObat.php")
