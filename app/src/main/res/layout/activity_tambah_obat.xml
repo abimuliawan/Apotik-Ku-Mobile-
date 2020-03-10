@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F4"
+    android:orientation="vertical"
+    tools:context=".TambahObatActivity"
+    android:id="@+id/root_layout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:layout_height="198dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="Tambah Obat"
+            android:textColor="#FFF"
+            android:textAlignment="center"
+            android:layout_marginBottom="28dp"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-40dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="22dp"
+        android:orientation="vertical"
+        android:background="@drawable/item_form">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
+
+            <LinearLayout
+                android:id="@+id/input1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nameTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Nama"
+                    android:layout_marginBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/txtNamaObat"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="12dp"
+                    android:layout_height="55dp"
+                    android:inputType="text"
+                    android:textColorHint="#B5B5B5"
+                    android:hint="Nama Obat ?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_input"/>
+
+                <TextView
+                    android:id="@+id/merkTitle"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Merk"
+                    android:layout_marginBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/txtMerkObat"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="12dp"
+                    android:layout_height="55dp"
+                    android:inputType="text"
+                    android:textColorHint="#B5B5B5"
+                    android:hint="Merk Obat ?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_input"/>
+
+
+
+                <TextView
+                    android:id="@+id/keteranganTitle"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Keterangan"
+                    android:layout_marginBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/txtKeteranganObat"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="12dp"
+                    android:layout_height="55dp"
+                    android:inputType="text"
+                    android:textColorHint="#B5B5B5"
+                    android:hint="Jenis Obat ?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_input"/>
+
+                <TextView
+                    android:id="@+id/kadaluarsaTitle"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Kadaluarsa"
+                    android:layout_marginBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/txtKadaluarsaObat"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="12dp"
+                    android:layout_height="55dp"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:textColorHint="#B5B5B5"
+                    android:hint="Tanggal Kadalursa ?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/custom_input"/>
+
+
+                </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnInsertObat"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Tambah Obat"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:background="@drawable/btn_insert"
+        />
+
+
+</LinearLayout>
