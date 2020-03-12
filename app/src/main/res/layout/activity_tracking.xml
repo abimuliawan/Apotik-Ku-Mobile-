@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TransaksiObatActivity">
+    tools:context=".TrackingActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarHospital"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Transaksi Obat"
+        app:title="Tracking Pegawai"
         app:titleTextColor="#FFF"
         android:elevation="4dp"
         android:background="@color/colorPrimary"
@@ -18,20 +17,10 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_transaksi_obat"
+        android:id="@+id/recycler_view_tracking"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="56dp"
         android:scrollbars="vertical"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_trans"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/icon_add_shop"
-        android:layout_margin="16dp" />
 </RelativeLayout>

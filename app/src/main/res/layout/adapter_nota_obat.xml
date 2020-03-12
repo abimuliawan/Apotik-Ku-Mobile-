@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/jumlah_obat_nota"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:text="3"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/nama_obat_nota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16dp"
+        android:text="Nama Obat"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/harga_obat_nota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:textColor="#228B22"
+        android:textSize="16dp"
+        android:text="Harga Obat"
+        android:layout_gravity="center"/>
+</LinearLayout>

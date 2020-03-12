@@ -1,10 +1,13 @@
 package com.example.apotekku;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.apotekku.Adapter.ObatAdapter;
 import com.example.apotekku.Adapter.PilihObatAdapter;
@@ -24,6 +27,7 @@ public class TransaksiObatActivity extends AppCompatActivity {
     private RecyclerView recyclerViewObat;
     private PilihObatAdapter pilihObatAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private FloatingActionButton toListTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class TransaksiObatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transaksi_obat);
 
         recyclerViewObat = findViewById(R.id.recycler_view_transaksi_obat);
+        toListTransaction = findViewById(R.id.fab_trans);
 
         //Inisialisasi Recycle
         pilihObatAdapter = new PilihObatAdapter(TransaksiObatActivity.this, obatList);
@@ -40,6 +45,14 @@ public class TransaksiObatActivity extends AppCompatActivity {
         recyclerViewObat.setAdapter(pilihObatAdapter);
 
         setRecyclerViewObat();
+
+        toListTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TransaksiObatActivity.this, ListTransactionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setRecyclerViewObat() {

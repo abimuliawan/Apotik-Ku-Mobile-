@@ -3,7 +3,7 @@ package com.example.apotekku.DAO;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ObatDAO {
+public class ObatDAO  {
 
     @SerializedName("id")
     @Expose

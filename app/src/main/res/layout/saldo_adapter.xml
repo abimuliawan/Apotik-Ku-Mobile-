@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:elevation="2dp">
 
     <android.support.v7.widget.CardView
@@ -16,35 +16,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
-            android:orientation="vertical"
-            android:padding="15dp">
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:weightSum="3">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight=".4"
-                android:orientation="vertical">
+            <TextView
+                android:id="@+id/nama_obat_jum_trans"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textSize="16dp"/>
+            <TextView
+                android:id="@+id/jumlah_obat_jum_trans"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Jumlah"
+                android:textSize="16dp"/>
 
-                <TextView
-                    android:id="@+id/nama_obat"
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_edit_trans"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:textSize="18dp">
+
+                <ImageView
+                    android:layout_marginLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="Nama Obat"
-                    android:textColor="#000"
-                    android:textSize="20sp" />
+                    android:src="@drawable/icon_edit" />
+            </android.support.v7.widget.CardView>
 
-                <TextView
-                    android:id="@+id/saldo_obat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="Rp. 123"
-                    android:textColor="#037c05"
-                    android:textSize="18sp" />
-
-
-            </LinearLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

@@ -64,7 +64,7 @@ public class MenuUtamaActivity extends AppCompatActivity {
         btnPengadaanBarang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuUtamaActivity.this, TambahStokObatActivity.class);
+                Intent intent = new Intent(MenuUtamaActivity.this, PegawaiActivity.class);
                 startActivity(intent);
             }
         });
@@ -124,48 +124,4 @@ public class MenuUtamaActivity extends AppCompatActivity {
         });
     }
 
-
-
-    private void tambahStokObat(int jumlah_tambah, int id_obat)
-    {
-        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-        Call<LoginDAO> userDAOCall= mApiInterface.tambahStok(id_obat,jumlah_tambah);
-
-        userDAOCall.enqueue(new Callback<LoginDAO>()
-        {
-            public void onResponse(Call<LoginDAO> call, Response<LoginDAO> response)
-            {
-                    Toasty.success(MenuUtamaActivity.this, "Obat berhasil ditambah",
-                            Toast.LENGTH_SHORT, true).show();
-            }
-
-            public void onFailure(Call<LoginDAO> call, Throwable t)
-            {
-                Toasty.error(MenuUtamaActivity.this, t.getMessage(),
-                        Toast.LENGTH_SHORT, true).show();
-            }
-        });
-    }
-
-    private void kurangStokObat(int jumlah_kurang, int id_obat)
-    {
-        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-        Call<LoginDAO> userDAOCall= mApiInterface.kurangStok(id_obat,jumlah_kurang);
-        userDAOCall.enqueue(new Callback<LoginDAO>()
-        {
-            public void onResponse(Call<LoginDAO> call, Response<LoginDAO> response)
-            {
-                Toasty.success(MenuUtamaActivity.this, "Obat berhasil dikurang",
-                        Toast.LENGTH_SHORT, true).show();
-            }
-
-            public void onFailure(Call<LoginDAO> call, Throwable t)
-            {
-                Toasty.error(MenuUtamaActivity.this, t.getMessage(),
-                        Toast.LENGTH_SHORT, true).show();
-            }
-        });
-    }
 }

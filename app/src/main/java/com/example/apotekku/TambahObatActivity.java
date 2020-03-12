@@ -52,7 +52,6 @@ public class TambahObatActivity extends AppCompatActivity {
     private LinearLayout linearLayout;
     private ApiInterface mApiInterface;
 
-    private static final int PICK_IMAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +102,7 @@ public class TambahObatActivity extends AppCompatActivity {
     }
 
     private void updateLabel() {
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        String myFormat = "yyyy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         txtKadaluarsa.setText(sdf.format(myCalendar.getTime()));
@@ -113,9 +112,8 @@ public class TambahObatActivity extends AppCompatActivity {
     public void insertObat(){
         dialog = new ProgressDialog(TambahObatActivity.this);
         dialog.setTitle("Please Wait");
-        dialog.setMessage("Upload Image...");
+        dialog.setMessage("Tambah Obat...");
         dialog.show();
-
 
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<ObatDAO> userDAOCall = mApiInterface.insertObat(txtNama.getText().toString(),
@@ -152,7 +150,7 @@ public class TambahObatActivity extends AppCompatActivity {
                     },1000);
                 }
                 else{
-
+                    dialog.dismiss();
                     Toasty.error(TambahObatActivity.this, "Gagal Menambah Data",
                             Toast.LENGTH_SHORT, true).show();
                 }
@@ -160,7 +158,9 @@ public class TambahObatActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ObatDAO> call, Throwable t) {
-
+                dialog.dismiss();
+                Toasty.error(TambahObatActivity.this, t.getMessage(),
+                        Toast.LENGTH_SHORT, true).show();
             }
         });
 

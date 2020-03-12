@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
+        android:name="com.orm.SugarApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +16,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterEmployeeActivity"></activity>
+        <activity android:name=".TrackingActivity"></activity>
+        <activity android:name=".PegawaiActivity" />
+
+        <meta-data
+            android:name="DATABASE"
+            android:value="ast-examplea.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2.0" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="TRUE" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example.apotekku" />
+
+        <activity android:name=".RegisterEmployeeActivity" />
         <activity android:name=".SaldoObatActivity" />
         <activity android:name=".ListTransactionActivity" />
         <activity android:name=".TransaksiObatActivity" />
