@@ -34,7 +34,7 @@ public class MenuUtamaActivity extends AppCompatActivity {
     private LinearLayout btnDataBarang, btnPengadaanBarang,
             btnPenjualanBarang, btnLogOut, btnLaporan, btnTambahBarang;
 
-    private CardView cardViewPenjualan, cardViewPembelian;
+    private CardView cardViewPenjualan, cardViewPembelian, cardViewStokPerObat;
     private EditText txtJumlahStok;
     private ApiInterface mApiInterface;
 
@@ -82,7 +82,9 @@ public class MenuUtamaActivity extends AppCompatActivity {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MenuUtamaActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -98,6 +100,7 @@ public class MenuUtamaActivity extends AppCompatActivity {
                 //Set Card View
                 cardViewPembelian = mView.findViewById(R.id.cardViewLaporanPembelian);
                 cardViewPenjualan = mView.findViewById(R.id.cardViewLaporanPenjualan);
+                cardViewStokPerObat = mView.findViewById(R.id.cardViewLaporanStokObat);
 
                 mBuilder.setView(mView)
                         .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
@@ -108,8 +111,35 @@ public class MenuUtamaActivity extends AppCompatActivity {
                             }
                         });
 
-                AlertDialog dialog = mBuilder.create();
+                final AlertDialog dialog = mBuilder.create();
                 dialog.show();
+
+                cardViewPembelian.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MenuUtamaActivity.this, LapPembelianActivity.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                cardViewPenjualan.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MenuUtamaActivity.this, LapPenjualanActivity.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                cardViewStokPerObat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MenuUtamaActivity.this, SaldoPerObatActivity.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
             }
         });
 

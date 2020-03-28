@@ -16,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TrackingActivity"></activity>
+        <activity android:name=".SaldoPerObatActivity"></activity>
+        <activity android:name=".EditObatActivity" />
+        <activity android:name=".LapPenjualanActivity" />
+        <activity android:name=".LapPembelianActivity" />
+        <activity android:name=".TrackingActivity" />
         <activity android:name=".PegawaiActivity" />
 
         <meta-data
@@ -38,7 +42,9 @@
         <activity android:name=".TransaksiObatActivity" />
         <activity android:name=".TambahStokObatActivity" />
         <activity android:name=".TambahObatActivity" />
-        <activity android:name=".ShowObatActivity" />
+        <activity
+            android:name=".ShowObatActivity"
+            android:theme="@style/EditorTheme" />
         <activity android:name=".MenuUtamaActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>

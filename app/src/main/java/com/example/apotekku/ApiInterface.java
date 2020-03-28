@@ -1,8 +1,11 @@
 package com.example.apotekku;
 
+import com.example.apotekku.DAO.LaporanDAO;
 import com.example.apotekku.DAO.LoginDAO;
 import com.example.apotekku.DAO.ObatDAO;
 import com.example.apotekku.DAO.ResponNota;
+import com.example.apotekku.DAO.TrackingDAO;
+import com.example.apotekku.DAO.UserDAO;
 
 import java.util.List;
 
@@ -22,6 +25,19 @@ public interface ApiInterface {
                                 @Field("password") String password);
 
     // Laravel
+
+    @GET("all_user")
+    Call<List<UserDAO>> showPegawai();
+
+    @GET("pembelian")
+    Call<List<LaporanDAO>> showPembelian();
+
+    @GET("penjualan")
+    Call<List<LaporanDAO>> showPenjualan();
+
+    @GET("tracking_user")
+    Call<List<TrackingDAO>> showTracking();
+
     @GET("semua_obat")
     Call<List<ObatDAO>> showObat();
 

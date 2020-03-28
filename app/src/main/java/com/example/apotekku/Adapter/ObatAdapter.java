@@ -7,10 +7,16 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,24 +32,31 @@ import com.example.apotekku.ApiInterface;
 import com.example.apotekku.DAO.NotaObat;
 import com.example.apotekku.DAO.ObatDAO;
 import com.example.apotekku.DAO.TransaksiObat;
+import com.example.apotekku.EditObatActivity;
+import com.example.apotekku.FilterObat;
 import com.example.apotekku.MenuUtamaActivity;
 import com.example.apotekku.R;
+import com.example.apotekku.ShowObatActivity;
 import com.example.apotekku.TambahObatActivity;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> {
+public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> implements Filterable {
 
-    private List<ObatDAO> result;
+    public List<ObatDAO> result, obatsFilter;
     private Context context;
     private ApiInterface mApiInterface;
+
+    public FilterObat filter;
 
     public ObatAdapter(Context context, List<ObatDAO> result) {
         this.context = context;
         this.result = result;
+        this.obatsFilter = result;
     }
 
     @NonNull
@@ -58,6 +71,7 @@ public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ObatAdapter.MyViewHolder myViewHolder, int i) {
+
         final ObatDAO obat = result.get(i);
         myViewHolder.txtNama.setText(obat.getNama_obat());
         myViewHolder.txtSaldo.setText("Saldo : Rp. "+obat.getSaldoObat());
@@ -70,6 +84,7 @@ public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> 
             public void onClick(View v) {
                 dialogAddObat(obat.getNama_obat(), obat.getId_obat());
             }
+
         });
     }
 
@@ -78,7 +93,15 @@ public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> 
         return result.size();
     }
 
-    public class MyViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
+    public Filter getFilter() {
+        if (filter==null) {
+            filter=new FilterObat((ArrayList<ObatDAO>) obatsFilter,this);
+
+        }
+        return filter;
+    }
+
+    public class MyViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
         private TextView txtNama, txtSaldo, txtStok, txtKeterangan, txtTanggal;
         private CardView cardView;
 
@@ -90,13 +113,21 @@ public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> 
             txtKeterangan = itemView.findViewById(R.id.keterangan_obat);
             txtTanggal = itemView.findViewById(R.id.tanggal_kadaluarsa);
             cardView = itemView.findViewById(R.id.cardViewAdapterObat);
+            cardView.setOnCreateContextMenuListener(this);
         }
 
         @Override
         public void onClick(View v) {
 
         }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            menu.add(0, 1, Menu.NONE, "Edit Obat");
+            menu.add(0, 2, Menu.NONE, "Hapus Obat");
+        }
     }
+
 
     public void dialogAddObat(String nama, final String id)
     {
@@ -156,6 +187,10 @@ public class ObatAdapter extends RecyclerView.Adapter<ObatAdapter.MyViewHolder> 
 
             }
         });
+    }
 
+    public void removeObat(int position){
+        result.remove(position);
+        notifyDataSetChanged();
     }
 }
